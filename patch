@@ -1,0 +1,24 @@
+diff --git a/caddyhttp/caddyhttp.go b/caddyhttp/caddyhttp.go
+index d9d97e9..5654c02 100644
+--- a/caddyhttp/caddyhttp.go
++++ b/caddyhttp/caddyhttp.go
+@@ -19,6 +19,7 @@ import (
+ 	_ "github.com/mholt/caddy/caddyhttp/httpserver"
+ 
+ 	// plug in the standard directives
++	_ "github.com/amonks/caddy-jwt-middleware"
+ 	_ "github.com/mholt/caddy/caddyhttp/basicauth"
+ 	_ "github.com/mholt/caddy/caddyhttp/bind"
+ 	_ "github.com/mholt/caddy/caddyhttp/browse"
+diff --git a/caddyhttp/httpserver/plugin.go b/caddyhttp/httpserver/plugin.go
+index 4abcbbb..1877b55 100644
+--- a/caddyhttp/httpserver/plugin.go
++++ b/caddyhttp/httpserver/plugin.go
+@@ -616,6 +616,7 @@ var directives = []string{
+ 	"header",
+ 	"geoip", // github.com/kodnaplakal/caddy-geoip
+ 	"errors",
++	"session",
+ 	"authz",        // github.com/casbin/caddy-authz
+ 	"filter",       // github.com/echocat/caddy-filter
+ 	"ipfilter",     // github.com/pyed/ipfilter
