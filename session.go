@@ -56,7 +56,7 @@ func (h Handler) proxyWithJWT(w http.ResponseWriter, r *http.Request) (int, erro
 	}
 
 	// Set header
-	r.Header.Set("Authorization", fmt.Sprintf("Bearer: %s", tokenString))
+	r.Header.Set("Authorization", fmt.Sprintf("Bearer %s", tokenString))
 	return h.Next.ServeHTTP(w, r)
 }
 
